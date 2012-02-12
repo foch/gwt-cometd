@@ -70,9 +70,8 @@ public class CometD {
 		return addListener(META_PREFIX + metaChannel.toString(), listener);
 	}
 
-	public native void removeListener(
-			CometDListener<? extends JavaScriptObject> listener) /*-{
-		$wnd.dojox.cometd.removeListener(listener);
+	public native void removeListener(JavaScriptObject subscription) /*-{
+		$wnd.dojox.cometd.removeListener(subscription);
 	}-*/;
 
 	public native JavaScriptObject subscribe(String channel,
