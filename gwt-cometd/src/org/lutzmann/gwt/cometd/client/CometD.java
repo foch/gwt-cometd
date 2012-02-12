@@ -22,33 +22,25 @@ public class CometD {
 
 	private static final String META_PREFIX = "/meta/";
 
-	private String cometURL;
-
-	public CometD(String url) {
-		this.cometURL = url;
-
-		addUnload();
-	}
-
-	private native void addUnload() /*-{
-		$wnd.dojo.addOnLoad(function() {
-			$wnd.dojo.addOnUnload(function() {
-				$wnd.dojox.cometd.disconnect(true);
-			});
-		});
-	}-*/;
-
 	public native void disableWebSocketTransport() /*-{
 		$wnd.dojox.cometd.websocketEnabled = false;
 	}-*/;
 
-	public native void configure() /*-{
-		var cometURL = this.@org.lutzmann.gwt.cometd.client.CometD::cometURL;
-
-		$wnd.dojox.cometd.configure({
-			url : cometURL,
-			logLevel : 'debug'
-		});
+	public native void configure(CometDConfiguration config) /*-{
+		$wnd.dojox.cometd
+				.configure({
+					url : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::getUrl()(),
+					logLevel : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::getLogLevel()(),
+					maxConnections : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::getMaxConnections()(),
+					backoffIncrement : config
+							.@org.lutzmann.gwt.cometd.client.CometDConfiguration::getBackoffIncrement(),
+					maxBackoff : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::getMaxBackoff()(),
+					reverseIncomingExtensions : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::isReverseIncomingExtensions()(),
+					maxNetworkDelay : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::getMaxNetworkDelay()(),
+					requestHeaders : {},
+					appendMessageTypeToURL : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::isAppendMessageTypeToUrl()(),
+					autoBatch : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::isAutoBatch()()
+				});
 	}-*/;
 
 	public native void handshake() /*-{
