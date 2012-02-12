@@ -33,14 +33,21 @@ Usage
 
 ### Add and remove listeners
 
-	JavaScriptObject metaListener = cometd.addListener("/meta/*", new CometDListener<BayeuxMessage>() {
-			@Override
-			public void processMessage(BayeuxMessage message) {
-				// do something useful here
-			}
-		});
+	Subscription connectSubscription = cometd.addMetaListener(MetaChannel.connect,
+				new CometDListener<BayeuxMessage>() {
+					@Override
+					public void processMessage(BayeuxMessage message) {
+						if (message.isSuccessful()) {
+							// connected
+							...
+						} else {
+							// disconnected
+							...
+						}
+					}
+				});
 	...
-	cometd.removeListener(metaListener);
+	cometd.removeListener(connectSubscription);
 
 
 ### Handshake
@@ -50,15 +57,16 @@ Usage
 
 ### Subscribe and unsubscribe
 
-	JavaScriptObject subscription = cometd.subscribe("/latestnews",
+	Subscription newsSubscription = cometd.subscribe("/latestnews",
 				new CometDListener<BayeuxMessage>() {
 					@Override
 					public void processMessage(BayeuxMessage message) {
-						// do something useful here
+						// process news
+						...
 					}
 				});
 	...
-	cometd.unsubscribe(subscription);
+	cometd.unsubscribe(newsSubscription);
 
 
 ### Publish
@@ -66,6 +74,6 @@ Usage
 It is possible to publish data as a JSONObject:
 
 	JSONObject data = new JSONObject();
-	data.put("quote", new JSONNumber(1.2535));
+	data.put("quote", new JSONNumber(1.2092));
 	
-	cometd.publish("/chat", data);
+	cometd.publish("/FX/EURCHF", data);
