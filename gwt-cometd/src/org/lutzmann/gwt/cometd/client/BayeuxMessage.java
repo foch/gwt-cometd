@@ -17,6 +17,7 @@
 package org.lutzmann.gwt.cometd.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.json.client.JSONObject;
 
 public class BayeuxMessage extends JavaScriptObject {
 
@@ -54,8 +55,12 @@ public class BayeuxMessage extends JavaScriptObject {
 	public final native String getTimestamp() /*-{
 		return this.timestamp;
 	}-*/;
+	
+	public final JSONObject getData() {
+		return new JSONObject(getDataAsJavaScriptObject());
+	}
 
-	public final native JavaScriptObject getData() /*-{
+	private final native JavaScriptObject getDataAsJavaScriptObject() /*-{
 		return this.data;
 	}-*/;
 
