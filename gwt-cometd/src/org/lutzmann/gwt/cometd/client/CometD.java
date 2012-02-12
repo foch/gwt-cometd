@@ -17,6 +17,7 @@
 package org.lutzmann.gwt.cometd.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.json.client.JSONObject;
 
 public class CometD {
 
@@ -87,9 +88,13 @@ public class CometD {
 	public native void unsubscribe(JavaScriptObject subscription) /*-{
 		$wnd.dojox.cometd.unsubscribe(subscription);
 	}-*/;
+	
+	public void publish(String channel, JSONObject data) {
+		publish(channel, data.toString());
+	}
 
-	public native void publish(String channel, JavaScriptObject jso) /*-{
-		$wnd.dojox.cometd.publish(channel, jso);
+	private native void publish(String channel, String data) /*-{
+		$wnd.dojox.cometd.publish(channel, data);
 	}-*/;
 
 	public native void startBatch() /*-{
