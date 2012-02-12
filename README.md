@@ -10,7 +10,6 @@ Installation
 Add the following entries to the .gwt.xml file of your GWT module:
 
 	<inherits name="org.lutzmann.gwt.cometd.gwtcometd"/>
-	<inherits name="com.google.gwt.json.JSON"/>
 
 Then add the latest gwt-cometd JAR to the classpath of your GWT module.
 
