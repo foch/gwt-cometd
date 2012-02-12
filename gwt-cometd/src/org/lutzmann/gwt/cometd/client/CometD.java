@@ -56,7 +56,7 @@ public class CometD {
 		return $wnd.dojox.cometd.isDisconnected();
 	}-*/;
 
-	public native JavaScriptObject addListener(String channel,
+	public native Subscription addListener(String channel,
 			CometDListener<? extends JavaScriptObject> listener) /*-{
 		return $wnd.dojox.cometd
 				.addListener(
@@ -66,16 +66,16 @@ public class CometD {
 						});
 	}-*/;
 
-	public JavaScriptObject addMetaListener(MetaChannel metaChannel,
+	public Subscription addMetaListener(MetaChannel metaChannel,
 			CometDListener<? extends JavaScriptObject> listener) {
 		return addListener(META_PREFIX + metaChannel.toString(), listener);
 	}
 
-	public native void removeListener(JavaScriptObject subscription) /*-{
+	public native void removeListener(Subscription subscription) /*-{
 		$wnd.dojox.cometd.removeListener(subscription);
 	}-*/;
 
-	public native JavaScriptObject subscribe(String channel,
+	public native Subscription subscribe(String channel,
 			CometDListener<? extends JavaScriptObject> listener) /*-{
 		return $wnd.dojox.cometd
 				.subscribe(
@@ -85,7 +85,7 @@ public class CometD {
 						});
 	}-*/;
 
-	public native void unsubscribe(JavaScriptObject subscription) /*-{
+	public native void unsubscribe(Subscription subscription) /*-{
 		$wnd.dojox.cometd.unsubscribe(subscription);
 	}-*/;
 	
