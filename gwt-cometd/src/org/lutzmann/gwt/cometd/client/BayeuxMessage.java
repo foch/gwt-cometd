@@ -77,7 +77,11 @@ public class BayeuxMessage extends JavaScriptObject {
 		return this.error;
 	}-*/;
 
-	public final native String getExt() /*-{
+	public final JSONObject getExt() {
+		return new JSONObject(getExtAsJavaScriptObject());
+	}
+	
+	private final native JavaScriptObject getExtAsJavaScriptObject() /*-{
 		return this.ext;
 	}-*/;
 }
