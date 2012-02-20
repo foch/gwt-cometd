@@ -88,7 +88,7 @@ public class CometD {
 	public native void unsubscribe(Subscription subscription) /*-{
 		$wnd.dojox.cometd.unsubscribe(subscription);
 	}-*/;
-	
+
 	public void publish(String channel, JSONObject data) {
 		publish(channel, data.toString());
 	}
@@ -104,4 +104,12 @@ public class CometD {
 	public native void endBatch() /*-{
 		$wnd.dojox.cometd.endBatch();
 	}-*/;
+
+	public native void unregisterTransport(String transport) /*-{
+		$wnd.dojox.cometd.unregisterTransport(transport);
+	}-*/;
+	
+	public void unregisterTransport(Transport transport) {
+		unregisterTransport(transport.toString());
+	}
 }
