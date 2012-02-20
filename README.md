@@ -7,7 +7,7 @@ A GWT module that wraps the CometD JavaScript client.
 Installation
 ------------
 
-Add the following entries to the .gwt.xml file of your GWT module:
+Add the following entry to the .gwt.xml file of your GWT module:
 
 	<inherits name="org.lutzmann.gwt.cometd.gwtcometd"/>
 
