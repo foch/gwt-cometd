@@ -30,6 +30,11 @@ Usage
 	cometd.configure(config);
 
 
+### Unregister transport
+
+	cometd.unregisterTransport(Transport.websocket);
+
+
 ### Add and remove listeners
 
 	Subscription connectSubscription = cometd.addMetaListener(MetaChannel.connect,
