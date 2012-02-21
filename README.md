@@ -7,11 +7,12 @@ A GWT module that wraps the CometD JavaScript client.
 Installation
 ------------
 
+Clone the repository and import the `gwt-cometd` project into your Eclipse workspace. Then add the `gwt-cometd`
+project to the build path of your GWT module.
+
 Add the following entry to the .gwt.xml file of your GWT module:
 
 	<inherits name="org.lutzmann.gwt.cometd.gwtcometd"/>
-
-Then add the latest gwt-cometd JAR to the classpath of your GWT module.
 
 
 Usage
