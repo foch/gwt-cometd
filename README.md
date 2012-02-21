@@ -10,7 +10,7 @@ Installation
 Clone the repository and import the `gwt-cometd` project into your Eclipse workspace. Then add the `gwt-cometd`
 project to the build path of your GWT module.
 
-Add the following entry to the .gwt.xml file of your GWT module:
+Add the following entry to the `.gwt.xml` file of your GWT module:
 
 	<inherits name="org.lutzmann.gwt.cometd.gwtcometd"/>
 
@@ -29,11 +29,6 @@ Usage
 	config.setLogLevel(LogLevel.debug);
 	...
 	cometd.configure(config);
-
-
-### Unregister transport
-
-	cometd.unregisterTransport(Transport.websocket);
 
 
 ### Add and remove listeners
@@ -82,3 +77,8 @@ It is possible to publish data as a JSONObject:
 	data.put("quote", new JSONNumber(1.2092));
 	
 	cometd.publish("/FX/EURCHF", data);
+
+
+### Unregister transport
+
+	cometd.unregisterTransport(Transport.websocket);
