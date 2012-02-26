@@ -1,7 +1,7 @@
 gwt-cometd
 ==========
 
-A GWT module that wraps the CometD JavaScript client.
+A GWT module that wraps the [CometD](http://cometd.org/) JavaScript client library.
 
 
 Installation
@@ -87,3 +87,6 @@ NOTE: Do not forget to call `endBatch()` after a call to `startBatch()`!
 ### Unregister transport
 
 	cometd.unregisterTransport(Transport.websocket);
+
+
+For details on the described methods here have a look at the excellent [CometD Reference Manual](http://docs.cometd.org/reference/#javascript).
