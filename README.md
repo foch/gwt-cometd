@@ -75,6 +75,15 @@ It is possible to publish data as a JSONObject:
 	cometd.publish("/FX/EURCHF", data);
 
 
+### Message batching
+
+	cometd.startBatch();
+	...
+	cometd.endBatch();
+
+NOTE: Do not forget to call `endBatch()` after a call to `startBatch()`!
+
+
 ### Unregister transport
 
 	cometd.unregisterTransport(Transport.websocket);
