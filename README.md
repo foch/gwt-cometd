@@ -18,17 +18,13 @@ Add the following entry to the `.gwt.xml` file of your GWT module:
 Usage
 -----
 
-### Instantiation
-
-	CometD cometd = new CometD();
-
-
-### Configuration
+### Configuration & Instantiation
 
 	CometDConfiguration config = new CometDConfiguration("http://127.0.0.1:8080/cometd");
 	config.setLogLevel(LogLevel.debug);
 	...
-	cometd.configure(config);
+
+	CometD cometd = new CometD(config);
 
 
 ### Add and remove listeners
