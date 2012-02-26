@@ -22,12 +22,12 @@ import com.google.gwt.json.client.JSONObject;
 public class CometD {
 
 	private static final String META_PREFIX = "/meta/";
+	
+	public CometD(CometDConfiguration config) {
+		configure(config);
+	}
 
-	public native void disableWebSocketTransport() /*-{
-		$wnd.dojox.cometd.websocketEnabled = false;
-	}-*/;
-
-	public native void configure(CometDConfiguration config) /*-{
+	private native void configure(CometDConfiguration config) /*-{
 		$wnd.dojox.cometd
 				.configure({
 					url : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::getUrl()(),
@@ -112,4 +112,8 @@ public class CometD {
 	public void unregisterTransport(Transport transport) {
 		unregisterTransport(transport.toString());
 	}
+	
+	public native void disableWebSocketTransport() /*-{
+		$wnd.dojox.cometd.websocketEnabled = false;
+	}-*/;
 }
