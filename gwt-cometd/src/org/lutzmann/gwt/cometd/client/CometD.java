@@ -28,7 +28,7 @@ public class CometD {
 	}
 
 	private native void configure(CometDConfiguration config) /*-{
-		$wnd.dojox.cometd
+		$wnd.$.cometd
 				.configure({
 					url : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::getUrl()(),
 					logLevel : config.@org.lutzmann.gwt.cometd.client.CometDConfiguration::getLogLevel()(),
@@ -45,20 +45,20 @@ public class CometD {
 	}-*/;
 
 	public native void handshake() /*-{
-		$wnd.dojox.cometd.handshake();
+		$wnd.$.cometd.handshake();
 	}-*/;
 
 	public native void disconnect() /*-{
-		$wnd.dojox.cometd.disconnect(true);
+		$wnd.$.cometd.disconnect(true);
 	}-*/;
 
 	public native boolean isDisconnected() /*-{
-		return $wnd.dojox.cometd.isDisconnected();
+		return $wnd.$.cometd.isDisconnected();
 	}-*/;
 
 	public native Subscription addListener(String channel,
 			CometDListener<? extends JavaScriptObject> listener) /*-{
-		return $wnd.dojox.cometd
+		return $wnd.$.cometd
 				.addListener(
 						channel,
 						function(message) {
@@ -72,12 +72,12 @@ public class CometD {
 	}
 
 	public native void removeListener(Subscription subscription) /*-{
-		$wnd.dojox.cometd.removeListener(subscription);
+		$wnd.$.cometd.removeListener(subscription);
 	}-*/;
 
 	public native Subscription subscribe(String channel,
 			CometDListener<? extends JavaScriptObject> listener) /*-{
-		return $wnd.dojox.cometd
+		return $wnd.$.cometd
 				.subscribe(
 						channel,
 						function(message) {
@@ -86,7 +86,7 @@ public class CometD {
 	}-*/;
 
 	public native void unsubscribe(Subscription subscription) /*-{
-		$wnd.dojox.cometd.unsubscribe(subscription);
+		$wnd.$.cometd.unsubscribe(subscription);
 	}-*/;
 
 	public void publish(String channel, JSONObject data) {
@@ -94,19 +94,19 @@ public class CometD {
 	}
 
 	private native void publish(String channel, String data) /*-{
-		$wnd.dojox.cometd.publish(channel, data);
+		$wnd.$.cometd.publish(channel, data);
 	}-*/;
 
 	public native void startBatch() /*-{
-		$wnd.dojox.cometd.startBatch();
+		$wnd.$.cometd.startBatch();
 	}-*/;
 
 	public native void endBatch() /*-{
-		$wnd.dojox.cometd.endBatch();
+		$wnd.$.cometd.endBatch();
 	}-*/;
 
 	public native void unregisterTransport(String transport) /*-{
-		$wnd.dojox.cometd.unregisterTransport(transport);
+		$wnd.$.cometd.unregisterTransport(transport);
 	}-*/;
 	
 	public void unregisterTransport(Transport transport) {
@@ -114,6 +114,6 @@ public class CometD {
 	}
 	
 	public native void disableWebSocketTransport() /*-{
-		$wnd.dojox.cometd.websocketEnabled = false;
+		$wnd.$.cometd.websocketEnabled = false;
 	}-*/;
 }

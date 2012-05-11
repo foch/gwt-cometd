@@ -3,7 +3,8 @@
 <module>
 	<inherits name="com.google.gwt.user.User" />
 	<inherits name="com.google.gwt.json.JSON" />
-	
-	<script src="dojo/dojo.js" />
-	<script src="dojox/cometd.js" />
+
+	<script src="org/cometd.js" />
+	<script src="jquery/jquery-1.7.1.js" />
+	<script src="jquery/jquery.cometd.js" />
 </module>
