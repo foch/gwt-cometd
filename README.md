@@ -90,3 +90,12 @@ NOTE: Do not forget to call `endBatch()` after a call to `startBatch()`!
 
 
 For details on the described methods here have a look at the excellent [CometD Reference Manual](http://docs.cometd.org/reference/#javascript).
+
+
+Contributions
+-------------
+
+Bernhard Lutzmann - project lead<br>
+Ondrej Galik - contributed code to switch to JQuery bindings
+
+Thanks!
