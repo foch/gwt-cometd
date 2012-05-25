@@ -17,12 +17,11 @@
 package org.lutzmann.gwt.cometd.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.json.client.JSONObject;
 
 public class CometD {
 
 	private static final String META_PREFIX = "/meta/";
-	
+
 	public CometD(CometDConfiguration config) {
 		configure(config);
 	}
@@ -89,11 +88,7 @@ public class CometD {
 		$wnd.$.cometd.unsubscribe(subscription);
 	}-*/;
 
-	public void publish(String channel, JSONObject data) {
-		publish(channel, data.toString());
-	}
-
-	private native void publish(String channel, String data) /*-{
+	public native void publish(String channel, JavaScriptObject data) /*-{
 		$wnd.$.cometd.publish(channel, data);
 	}-*/;
 
@@ -108,11 +103,11 @@ public class CometD {
 	public native void unregisterTransport(String transport) /*-{
 		$wnd.$.cometd.unregisterTransport(transport);
 	}-*/;
-	
+
 	public void unregisterTransport(Transport transport) {
 		unregisterTransport(transport.toString());
 	}
-	
+
 	public native void disableWebSocketTransport() /*-{
 		$wnd.$.cometd.websocketEnabled = false;
 	}-*/;
