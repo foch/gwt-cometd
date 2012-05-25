@@ -17,7 +17,6 @@
 package org.lutzmann.gwt.cometd.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.json.client.JSONObject;
 
 public class CometD {
 
@@ -48,8 +47,16 @@ public class CometD {
 		$wnd.$.cometd.handshake();
 	}-*/;
 
+	public native void handshake(JavaScriptObject data) /*-{
+		$wnd.$.cometd.handshake(data);
+	}-*/;
+	
 	public native void disconnect() /*-{
 		$wnd.$.cometd.disconnect(true);
+	}-*/;
+	
+	public native void disconnect(JavaScriptObject data) /*-{
+		$wnd.$.cometd.disconnect(true, data);
 	}-*/;
 
 	public native boolean isDisconnected() /*-{
@@ -89,11 +96,7 @@ public class CometD {
 		$wnd.$.cometd.unsubscribe(subscription);
 	}-*/;
 
-	public void publish(String channel, JSONObject data) {
-		publish(channel, data.toString());
-	}
-
-	private native void publish(String channel, String data) /*-{
+	public native void publish(String channel, JavaScriptObject data) /*-{
 		$wnd.$.cometd.publish(channel, data);
 	}-*/;
 
