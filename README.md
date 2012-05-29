@@ -100,8 +100,8 @@ For details on the described methods here have a look at the excellent [CometD R
 Contributions
 -------------
 
-Bernhard Lutzmann - project lead
-Ondrej Galik - contributed code to switch to JQuery bindings
-Julien Faucher
+* Bernhard Lutzmann - project lead
+* Ondrej Galik - contributed code to switch to JQuery bindings
+* Julien Faucher
 
 Thanks!
