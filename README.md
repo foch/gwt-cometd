@@ -53,26 +53,31 @@ Usage
 
 ### Subscribe and unsubscribe
 
-	Subscription newsSubscription = cometd.subscribe("/latestnews",
+	Subscription quoteSubscription = cometd.subscribe("/FX/EURCHF",
 				new CometDListener<BayeuxMessage>() {
 					@Override
 					public void processMessage(BayeuxMessage message) {
-						// process news
+						JSONObject data = new JSONObject(message.getData());
+						
+						JSONNumber bid = (JSONNumber) data.get("bid");
+						JSONNumber ask = (JSONNumber) data.get("ask");
+						
 						...
 					}
 				});
+	
 	...
-	cometd.unsubscribe(newsSubscription);
+	
+	cometd.unsubscribe(quoteSubscription);
 
 
 ### Publish
 
-It is possible to publish data as a JSONObject:
-
 	JSONObject data = new JSONObject();
-	data.put("quote", new JSONNumber(1.2092));
+	data.put("bid", new JSONNumber(1.2011));
+	data.put("ask", new JSONNumber(1.2014));
 	
-	cometd.publish("/FX/EURCHF", data);
+	cometd.publish("/FX/EURCHF", data.getJavaScriptObject());
 
 
 ### Message batching

@@ -21,7 +21,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class CometD {
 
 	private static final String META_PREFIX = "/meta/";
-	
+
 	public CometD(CometDConfiguration config) {
 		configure(config);
 	}
@@ -111,11 +111,11 @@ public class CometD {
 	public native void unregisterTransport(String transport) /*-{
 		$wnd.$.cometd.unregisterTransport(transport);
 	}-*/;
-	
+
 	public void unregisterTransport(Transport transport) {
 		unregisterTransport(transport.toString());
 	}
-	
+
 	public native void disableWebSocketTransport() /*-{
 		$wnd.$.cometd.websocketEnabled = false;
 	}-*/;
